@@ -3,15 +3,15 @@ pipeline{
     stages{
         stage("maven build"){
             when{
-                branch = "develop"
+                branch  "develop"
             }
             steps{
-                echo "maven successfully build"
+                echo "maven  build success"
             }
         }
         stage("deploy to dev"){
             when{
-                branch = "develop"
+                branch "develop"
             }
             steps{
                 echo "deploy to dev"
@@ -19,7 +19,7 @@ pipeline{
         }
         stage("deploy to test"){
             when{
-                branch = "test"
+                branch  "test"
             }
             steps{
                 echo "deploy to dev"
@@ -27,10 +27,10 @@ pipeline{
         }
         stage("deploy to prod"){
             when{
-                branch = "prod"
+                branch  "main"
             }
             steps{
-                echo "deploy to dev"
+                echo "deploy to prod"
             }
         }
     }
